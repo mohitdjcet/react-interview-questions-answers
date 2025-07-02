@@ -154,80 +154,216 @@ function handleSubmit() {
 
 
 ---
-
-## 🟡 Intermediate Level
+## 🟡 Intermediate Level – ReactJS Interview Questions
 
 ### 16. What is Context API?
-Allows global state sharing across components without prop drilling.
+The **Context API** allows you to share global data (like theme, user authentication) across the component tree without having to pass props down manually at every level (known as prop drilling).
+
+```jsx
+const MyContext = React.createContext();
+<MyContext.Provider value={/* some value */}>
+  <ChildComponent />
+</MyContext.Provider>
+```
+
+---
 
 ### 17. What is prop drilling?
-Passing data through multiple layers of components manually.
+**Prop drilling** refers to passing data from a parent component to deeply nested child components through intermediary components that don’t necessarily need the data themselves.
+
+---
 
 ### 18. What is React Router?
-A routing library that enables single-page app navigation.
+**React Router** is a standard library for routing in React applications. It enables the navigation between different views of various components in a single-page application (SPA).
+
+```jsx
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+```
+
+---
 
 ### 19. What is Redux?
-A predictable state container for managing application-level state.
+**Redux** is a predictable state container for JavaScript apps. It helps you manage application state in a central store and allows components to access any state they need.
+
+---
 
 ### 20. What are actions in Redux?
-Plain JavaScript objects that describe what happened.
+**Actions** are plain JavaScript objects with a `type` field that describe what happened in the application.
+
+```js
+{ type: 'INCREMENT' }
+```
+
+---
 
 ### 21. What is a reducer?
-A function that determines state changes in response to actions.
+A **reducer** is a pure function that takes the current state and an action as arguments and returns a new state.
+
+```js
+function counter(state = 0, action) {
+  switch(action.type) {
+    case 'INCREMENT': return state + 1;
+    default: return state;
+  }
+}
+```
+
+---
 
 ### 22. What is middleware in Redux?
-Functions that intercept actions before they reach the reducer.
+**Middleware** in Redux intercepts actions before they reach the reducer. It's useful for logging, asynchronous operations, etc.
+
+---
 
 ### 23. What is useReducer?
-A React hook used as an alternative to useState for complex state logic.
+`useReducer` is a React Hook that is an alternative to `useState` for managing complex state logic. It works similarly to reducers in Redux.
+
+---
 
 ### 24. What is lazy loading in React?
-Loading components only when needed to improve performance.
+**Lazy loading** means loading components only when they’re needed, which helps improve performance and reduce the initial bundle size.
+
+```jsx
+const MyComponent = React.lazy(() => import('./MyComponent'));
+```
+
+---
 
 ### 25. What is Suspense?
-A component that shows a fallback until a lazy-loaded component finishes loading.
+`Suspense` is a React component that lets you show a fallback (like a loader) while waiting for lazy-loaded components to load.
+
+```jsx
+<Suspense fallback={<div>Loading...</div>}>
+  <MyComponent />
+</Suspense>
+```
+
+---
 
 ### 26. What is memoization in React?
-Optimization technique to avoid expensive calculations by caching results.
+**Memoization** is a performance optimization technique to cache the results of expensive function calls so they are not recalculated on every render.
+
+---
 
 ### 27. What is React.memo?
-A higher-order component that prevents unnecessary re-renders of functional components.
+`React.memo` is a **Higher Order Component (HOC)** that memoizes the rendered output of a functional component, preventing unnecessary re-renders if props haven't changed.
+
+```jsx
+export default React.memo(MyComponent);
+```
+
+---
 
 ### 28. What is useMemo?
-A hook that memoizes a computed value.
+`useMemo` is a hook used to memoize a computed value between renders.
+
+```jsx
+const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+```
+
+---
 
 ### 29. What is useCallback?
-A hook that returns a memoized version of a callback function.
+`useCallback` returns a memoized version of a callback function that only changes if one of its dependencies changes.
+
+```jsx
+const memoizedCallback = useCallback(() => {
+  doSomething(a, b);
+}, [a, b]);
+```
+
+---
 
 ### 30. What are portals?
-Allow rendering a component outside the parent DOM hierarchy.
+**Portals** allow rendering a child component into a different part of the DOM tree outside the parent component hierarchy.
+
+```jsx
+ReactDOM.createPortal(child, document.getElementById('modal-root'));
+```
+
+---
 
 ### 31. What is useRef?
-A hook that provides a mutable ref object.
+`useRef` is a hook that returns a mutable ref object whose `.current` property persists across renders. Useful for accessing DOM nodes or keeping mutable variables.
+
+```jsx
+const inputRef = useRef();
+<input ref={inputRef} />
+```
+
+---
 
 ### 32. What is forwardRef?
-A technique for passing refs to child components.
+`forwardRef` is used to pass a ref through a component to one of its children.
+
+```jsx
+const FancyInput = forwardRef((props, ref) => (
+  <input ref={ref} {...props} />
+));
+```
+
+---
 
 ### 33. What is shallow rendering?
-Rendering a component without its children to test in isolation.
+**Shallow rendering** is a testing strategy where a component is rendered without rendering its child components, allowing for isolated unit tests.
+
+---
 
 ### 34. What is StrictMode?
-A wrapper that checks for potential issues in development mode.
+`StrictMode` is a wrapper component used during development to highlight potential issues in an application. It does not render any visible UI.
+
+```jsx
+<React.StrictMode>
+  <App />
+</React.StrictMode>
+```
+
+---
 
 ### 35. How to optimize performance?
-Using memoization, avoiding unnecessary re-renders, and code splitting.
+- Use `React.memo`, `useMemo`, and `useCallback`
+- Avoid unnecessary re-renders
+- Use lazy loading and code splitting
+- Optimize rendering of large lists with virtualization
+
+---
 
 ### 36. What are custom hooks?
-Functions that use built-in React hooks to reuse component logic.
+**Custom hooks** are functions that use built-in hooks to encapsulate reusable logic, helping keep components clean and readable.
+
+```jsx
+function useCounter(initialValue = 0) {
+  const [count, setCount] = useState(initialValue);
+  return { count, increment: () => setCount(count + 1) };
+}
+```
+
+---
 
 ### 37. What is defaultProps?
-An attribute used to set default values for props.
+`defaultProps` allows you to set default values for props in class components. It ensures props have a fallback value if not provided.
+
+```jsx
+MyComponent.defaultProps = {
+  name: 'Guest'
+};
+```
+
+---
 
 ### 38. How to handle forms in React?
-By using controlled or uncontrolled components with appropriate state or refs.
+You can handle forms using controlled components (state) or uncontrolled components (refs). Controlled forms provide better control over input validation and behavior.
+
+---
 
 ### 39. What is React Developer Tools?
-A Chrome/Firefox extension to inspect and debug React components.
+A browser extension (Chrome/Firefox) that helps developers inspect the component hierarchy, state, props, hooks, and more in React applications.
+
+---
 
 ### 40. What is the difference between children and props?
-`children` is a prop that refers to nested elements between a component's opening and closing tags.
+- `props` are custom attributes passed to a component.
+- `children` is a special prop that includes any nested elements or components passed between the component's opening and closing tags.
+
+```jsx
+<MyComponent>Hello</MyComponent> // "Hello" is passed as children
