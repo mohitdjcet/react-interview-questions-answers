@@ -2,52 +2,156 @@
 
 ---
 
-## 🟢 Beginner Level
+## 🟢 Beginner Level – ReactJS Interview Questions
 
 ### 1. What is React?
-React is a JavaScript library developed by Facebook for building fast and interactive user interfaces.
+React is a **JavaScript library** developed by **Facebook** for building **user interfaces**, especially for single-page applications. It allows developers to create large web applications that can update and render efficiently in response to data changes without reloading the page.
+
+---
 
 ### 2. Why use React?
-React allows efficient updating and rendering of components in response to data changes.
+React offers several benefits:
+- **Declarative syntax** makes code more predictable and easier to debug.
+- **Component-based architecture** encourages reusable, maintainable code.
+- It uses a **Virtual DOM** for faster rendering.
+- It's backed by a strong community and ecosystem.
+
+---
 
 ### 3. What is JSX?
-JSX stands for JavaScript XML and allows HTML to be written within JavaScript.
+JSX stands for **JavaScript XML**. It allows developers to write HTML-like syntax directly in JavaScript files. JSX makes it easier to visualize the UI structure and is compiled to `React.createElement()` calls under the hood.
+
+```jsx
+const element = <h1>Hello, React!</h1>;
+```
+
+---
 
 ### 4. What are components in React?
-Components are self-contained modules that return HTML elements.
+Components are the **building blocks of a React application**. They are reusable pieces of UI that return React elements. There are two types of components: **functional components** and **class components**.
+
+```jsx
+function Welcome() {
+  return <h1>Hello, world!</h1>;
+}
+```
+
+---
 
 ### 5. What is Virtual DOM?
-A lightweight JavaScript representation of the real DOM used to improve performance.
+The **Virtual DOM (VDOM)** is a lightweight JavaScript representation of the real DOM. When changes are made to the UI, React updates the Virtual DOM first and then efficiently updates the real DOM only where changes occurred, improving performance.
+
+---
 
 ### 6. What is a functional component?
-A JavaScript function that returns React elements.
+A **functional component** is a simple JavaScript function that returns JSX. It doesn't have its own state unless you use React hooks like `useState`.
+
+```jsx
+function Greeting(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+```
+
+---
 
 ### 7. What is a class component?
-A component defined with ES6 class that can manage its own state.
+A **class component** is an ES6 class that extends `React.Component` and has a `render()` method. It can maintain its own state and lifecycle methods.
+
+```jsx
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+```
+
+---
 
 ### 8. What are props in React?
-Props are inputs to components passed as attributes.
+**Props (short for properties)** are inputs to React components. They are passed from a parent component to a child component and are read-only. Props allow you to make your components dynamic and reusable.
+
+```jsx
+function Welcome(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+```
+
+---
 
 ### 9. What is state in React?
-State is a local data storage that is mutable within the component.
+**State** is a built-in object in class and functional components that allows components to create and manage their own data. State is mutable and used to store information that can change over the component's lifecycle.
+
+```jsx
+const [count, setCount] = useState(0);
+```
+
+---
 
 ### 10. What is useState?
-A React hook that lets you add state to a functional component.
+`useState` is a **React Hook** that allows you to add state to functional components. It returns an array with two values: the current state and a function to update it.
+
+```jsx
+const [name, setName] = useState('Mohit');
+```
+
+---
 
 ### 11. What is useEffect?
-A hook for performing side effects like fetching data, subscriptions, etc.
+`useEffect` is a **hook** used to perform side effects in functional components. Common use cases include data fetching, setting up subscriptions, and manually changing the DOM.
+
+```jsx
+useEffect(() => {
+  document.title = `You clicked ${count} times`;
+}, [count]);
+```
+
+---
 
 ### 12. What are fragments in React?
-Fragments allow multiple elements to be grouped without adding extra nodes to the DOM.
+**Fragments** let you group a list of children elements without adding extra nodes to the DOM.
+
+```jsx
+<>
+  <td>Hello</td>
+  <td>World</td>
+</>
+```
+
+---
 
 ### 13. What is an event in React?
-A way to capture user interactions like clicks, form submissions, etc.
+Events in React are handled using camelCase syntax and JavaScript functions. They are used to respond to user actions like clicks, typing, or form submissions.
+
+```jsx
+<button onClick={handleClick}>Click Me</button>
+```
+
+---
 
 ### 14. What are controlled components?
-Form inputs whose values are controlled by React state.
+**Controlled components** are form elements whose values are controlled by React state. The value of the input field is set by the component's state.
+
+```jsx
+<input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+```
+
+---
 
 ### 15. What are uncontrolled components?
-Form elements that manage their own state using refs.
+**Uncontrolled components** manage their own state using the DOM, typically accessed via **refs** in React.
+
+```jsx
+const inputRef = useRef();
+
+function handleSubmit() {
+  alert(`Input: ${inputRef.current.value}`);
+}
+
+<input ref={inputRef} type="text" />
+```
+
+---
+
 
 ---
 
