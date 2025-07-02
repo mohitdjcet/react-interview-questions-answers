@@ -113,51 +113,17 @@ A wrapper that checks for potential issues in development mode.
 ### 35. How to optimize performance?
 Using memoization, avoiding unnecessary re-renders, and code splitting.
 
----
+### 36. What are custom hooks?
+Functions that use built-in React hooks to reuse component logic.
 
-## 🔴 Advanced Level
+### 37. What is defaultProps?
+An attribute used to set default values for props.
 
-### 36. What is Server-Side Rendering (SSR)?
-Rendering components on the server instead of in the browser.
+### 38. How to handle forms in React?
+By using controlled or uncontrolled components with appropriate state or refs.
 
-### 37. What is hydration?
-Making server-rendered HTML interactive by attaching event listeners.
+### 39. What is React Developer Tools?
+A Chrome/Firefox extension to inspect and debug React components.
 
-### 38. What is Concurrent Mode?
-A new feature that allows React to interrupt rendering to handle urgent updates first.
-
-### 39. What is startTransition?
-A method that lets you mark updates as non-urgent.
-
-### 40. What is an Error Boundary?
-A component that catches errors in child components and displays a fallback UI.
-
-### 41. How to create custom hooks?
-By writing functions that use built-in React hooks.
-
-### 42. What are render props?
-A technique for sharing code between components using a function as a child.
-
-### 43. What are compound components?
-Components that work together as a group, sharing internal state via context.
-
-### 44. What is a higher-order component (HOC)?
-A function that takes a component and returns a new component with added props or behavior.
-
-### 45. What are synthetic events?
-A cross-browser wrapper around the browser’s native event system.
-
-### 46. What is reconciliation in React?
-The process of comparing the new virtual DOM with the previous one and applying necessary changes to the real DOM.
-
-### 47. What is the difference between SSR and CSR?
-SSR renders on the server, CSR renders on the client after the JS bundle loads.
-
-### 48. What is hydration error?
-When the server-rendered HTML doesn't match the client-rendered HTML.
-
-### 49. What is React Profiler?
-A tool to measure the performance of React components.
-
-### 50. What are the best practices in large-scale React apps?
-Component reusability, state management separation, folder structure, lazy loading, and consistent patterns.
+### 40. What is the difference between children and props?
+`children` is a prop that refers to nested elements between a component's opening and closing tags.
