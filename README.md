@@ -333,7 +333,7 @@ A browser extension (Chrome/Firefox) that helps developers inspect the component
 
 ---
 
-### 45. What is the difference between children and props?
+### 35. What is the difference between children and props?
 - `props` are custom attributes passed to a component.
 - `children` is a special prop that includes any nested elements or components passed between the component's opening and closing tags.
 
