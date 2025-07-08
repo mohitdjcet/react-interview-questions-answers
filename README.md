@@ -287,8 +287,10 @@ const FancyInput = forwardRef((props, ref) => (
 
 ---
 
-### 29. What is shallow rendering?
-**Shallow rendering** is a testing strategy where a component is rendered without rendering its child components, allowing for isolated unit tests.
+### 29. How does error handling work in React?
+**Error Boundaries** in React is done using Error Boundaries – special components that catch JavaScript errors in their child component tree during rendering, in lifecycle methods, and in constructors.
+
+react-error-boundary is a lightweight library that allows you to use error boundaries easily with functional components in React. It simplifies error handling and provides a FallbackComponent, reset mechanisms, and more.
 
 ---
 
