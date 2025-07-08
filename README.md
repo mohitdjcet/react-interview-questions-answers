@@ -176,8 +176,24 @@ const MyContext = React.createContext();
 ### 18. What is React Router?
 **React Router** is a standard library for routing in React applications. It enables the navigation between different views of various components in a single-page application (SPA).
 
+React Router v7 (also applies to v6) uses a simplified API based on components like BrowserRouter, Routes, and Route.
+
 ```jsx
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Home';
+import About from './About';
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
 ```
 
 ---
@@ -187,40 +203,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 ---
 
-### 20. What are actions in Redux?
-**Actions** are plain JavaScript objects with a `type` field that describe what happened in the application.
-
-```js
-{ type: 'INCREMENT' }
-```
-
----
-
-### 21. What is a reducer?
-A **reducer** is a pure function that takes the current state and an action as arguments and returns a new state.
-
-```js
-function counter(state = 0, action) {
-  switch(action.type) {
-    case 'INCREMENT': return state + 1;
-    default: return state;
-  }
-}
-```
-
----
-
-### 22. What is middleware in Redux?
-**Middleware** in Redux intercepts actions before they reach the reducer. It's useful for logging, asynchronous operations, etc.
-
----
-
-### 23. What is useReducer?
-`useReducer` is a React Hook that is an alternative to `useState` for managing complex state logic. It works similarly to reducers in Redux.
-
----
-
-### 24. What is lazy loading in React?
+### 20. What is lazy loading in React?
 **Lazy loading** means loading components only when they’re needed, which helps improve performance and reduce the initial bundle size.
 
 ```jsx
@@ -229,7 +212,7 @@ const MyComponent = React.lazy(() => import('./MyComponent'));
 
 ---
 
-### 25. What is Suspense?
+### 21. What is Suspense?
 `Suspense` is a React component that lets you show a fallback (like a loader) while waiting for lazy-loaded components to load.
 
 ```jsx
@@ -240,12 +223,12 @@ const MyComponent = React.lazy(() => import('./MyComponent'));
 
 ---
 
-### 26. What is memoization in React?
+### 22. What is memoization in React?
 **Memoization** is a performance optimization technique to cache the results of expensive function calls so they are not recalculated on every render.
 
 ---
 
-### 27. What is React.memo?
+### 23. What is React.memo?
 `React.memo` is a **Higher Order Component (HOC)** that memoizes the rendered output of a functional component, preventing unnecessary re-renders if props haven't changed.
 
 ```jsx
@@ -254,7 +237,7 @@ export default React.memo(MyComponent);
 
 ---
 
-### 28. What is useMemo?
+### 24. What is useMemo?
 `useMemo` is a hook used to memoize a computed value between renders.
 
 ```jsx
@@ -263,7 +246,7 @@ const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 
 ---
 
-### 29. What is useCallback?
+### 25. What is useCallback?
 `useCallback` returns a memoized version of a callback function that only changes if one of its dependencies changes.
 
 ```jsx
@@ -274,7 +257,7 @@ const memoizedCallback = useCallback(() => {
 
 ---
 
-### 30. What are portals?
+### 36. What are portals?
 **Portals** allow rendering a child component into a different part of the DOM tree outside the parent component hierarchy.
 
 ```jsx
@@ -283,7 +266,7 @@ ReactDOM.createPortal(child, document.getElementById('modal-root'));
 
 ---
 
-### 31. What is useRef?
+### 27. What is useRef?
 `useRef` is a hook that returns a mutable ref object whose `.current` property persists across renders. Useful for accessing DOM nodes or keeping mutable variables.
 
 ```jsx
@@ -293,7 +276,7 @@ const inputRef = useRef();
 
 ---
 
-### 32. What is forwardRef?
+### 28. What is forwardRef?
 `forwardRef` is used to pass a ref through a component to one of its children.
 
 ```jsx
@@ -304,23 +287,12 @@ const FancyInput = forwardRef((props, ref) => (
 
 ---
 
-### 33. What is shallow rendering?
+### 29. What is shallow rendering?
 **Shallow rendering** is a testing strategy where a component is rendered without rendering its child components, allowing for isolated unit tests.
 
 ---
 
-### 34. What is StrictMode?
-`StrictMode` is a wrapper component used during development to highlight potential issues in an application. It does not render any visible UI.
-
-```jsx
-<React.StrictMode>
-  <App />
-</React.StrictMode>
-```
-
----
-
-### 35. How to optimize performance?
+### 30. How to optimize performance?
 - Use `React.memo`, `useMemo`, and `useCallback`
 - Avoid unnecessary re-renders
 - Use lazy loading and code splitting
@@ -328,7 +300,7 @@ const FancyInput = forwardRef((props, ref) => (
 
 ---
 
-### 36. What are custom hooks?
+### 31. What are custom hooks?
 **Custom hooks** are functions that use built-in hooks to encapsulate reusable logic, helping keep components clean and readable.
 
 ```jsx
@@ -340,7 +312,7 @@ function useCounter(initialValue = 0) {
 
 ---
 
-### 37. What is defaultProps?
+### 32. What is defaultProps?
 `defaultProps` allows you to set default values for props in class components. It ensures props have a fallback value if not provided.
 
 ```jsx
@@ -351,17 +323,17 @@ MyComponent.defaultProps = {
 
 ---
 
-### 38. How to handle forms in React?
+### 33. How to handle forms in React?
 You can handle forms using controlled components (state) or uncontrolled components (refs). Controlled forms provide better control over input validation and behavior.
 
 ---
 
-### 39. What is React Developer Tools?
+### 34. What is React Developer Tools?
 A browser extension (Chrome/Firefox) that helps developers inspect the component hierarchy, state, props, hooks, and more in React applications.
 
 ---
 
-### 40. What is the difference between children and props?
+### 45. What is the difference between children and props?
 - `props` are custom attributes passed to a component.
 - `children` is a special prop that includes any nested elements or components passed between the component's opening and closing tags.
 
