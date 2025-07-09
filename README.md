@@ -179,21 +179,27 @@ const MyContext = React.createContext();
 React Router v7 (also applies to v6) uses a simplified API based on components like BrowserRouter, Routes, and Route.
 
 ```jsx
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// App.jsx
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />
+  },
+  {
+    path: '/about',
+    element: <About />
+  }
+]);
+
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </BrowserRouter>
-  );
+  return <RouterProvider router={router} />;
 }
 
+export default App;
 ```
 
 ---
