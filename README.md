@@ -347,3 +347,124 @@ A browser extension (Chrome/Firefox) that helps developers inspect the component
 
 ```jsx
 <MyComponent>Hello</MyComponent> // "Hello" is passed as children
+```
+
+
+# Top 15 Redux Toolkit + RTK Query Interview Questions (With Answers)
+
+These are essential interview questions and answers focused on Redux Toolkit and RTK Query, ideal for beginner to intermediate developers.
+
+---
+
+### 1. What is Redux Toolkit?
+
+Redux Toolkit is the official, recommended way to write Redux logic. It reduces boilerplate code and provides utilities like `createSlice`, `configureStore`, and `createAsyncThunk` to simplify Redux setup.
+
+---
+
+### 2. What are the benefits of using Redux Toolkit over traditional Redux?
+
+* Less boilerplate
+* Simplified setup
+* Built-in Redux DevTools support
+* Encourages best practices
+* Includes RTK Query for efficient data fetching
+
+---
+
+### 3. What is a slice in Redux Toolkit?
+
+A slice is a portion of the Redux state and the logic associated with it. You create a slice using `createSlice()`, which automatically generates action creators and reducers.
+
+```js
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState: 0,
+  reducers: {
+    increment: (state) => state + 1,
+  }
+});
+```
+
+---
+
+### 4. What is `createAsyncThunk`?
+
+It is used to handle asynchronous logic like API calls. It auto-generates `pending`, `fulfilled`, and `rejected` action types.
+
+---
+
+### 5. What is RTK Query?
+
+RTK Query is a powerful data fetching and caching tool built into Redux Toolkit. It manages API calls, caching, loading states, and errors efficiently.
+
+---
+
+### 6. What does `createApi` do in RTK Query?
+
+`createApi` sets up an API slice where you define endpoints using `builder.query` and `builder.mutation`. It auto-generates hooks for each endpoint.
+
+---
+
+### 7. What is the difference between `query` and `mutation` in RTK Query?
+
+* `query`: For fetching data (GET)
+* `mutation`: For modifying data (POST, PUT, DELETE)
+
+---
+
+### 8. What is `fetchBaseQuery`?
+
+It is a default base query function built on `fetch()` for making HTTP requests. It simplifies making REST API calls.
+
+---
+
+### 9. What is `tagTypes` in RTK Query?
+
+`tagTypes` define the types of data used for cache invalidation. Tags help manage refetching when data changes.
+
+---
+
+### 10. What is `providesTags` and `invalidatesTags`?
+
+* `providesTags`: Used in queries to tag cached data.
+* `invalidatesTags`: Used in mutations to tell RTK Query to invalidate and refetch related data.
+
+---
+
+### 11. How does caching work in RTK Query?
+
+RTK Query automatically caches fetched data and reuses it on subsequent requests, reducing network calls. You can customize when it should refetch.
+
+---
+
+### 12. How do you handle loading and error states in RTK Query?
+
+All query and mutation hooks return `isLoading`, `isError`, `data`, and `error` states, which you can use to show loaders or error messages.
+
+```js
+const { data, isLoading, isError } = useGetUsersQuery();
+```
+
+---
+
+### 13. What is `reducerPath` in `createApi`?
+
+`reducerPath` is the key in the Redux state where the API slice reducer is mounted. Example: `reducerPath: 'userApi'`
+
+---
+
+### 14. Can you use RTK Query without Redux Toolkit?
+
+No, RTK Query is tightly coupled with Redux Toolkit and requires it to work properly.
+
+---
+
+### 15. How do you integrate RTK Query with your React components?
+
+You use the auto-generated hooks like `useGetUsersQuery`, `useAddUserMutation`, etc., directly in your components to fetch and manipulate data.
+
+---
+
+Feel free to include these questions in your interviews, YouTube content, or job preparation notes!
+
